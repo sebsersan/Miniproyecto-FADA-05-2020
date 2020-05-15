@@ -30,6 +30,7 @@ public class AlgoritmoIngenuo {
     ArrayList<ArrayList <Integer>> grandezaPorParte = new ArrayList<>();
     ArrayList<ArrayList<ArrayList <Integer>>> espectaculo = new ArrayList<>();
     ArrayList<ArrayList<ArrayList <Integer>>> espectaculoOrdenado = new ArrayList<>();
+    ArrayList<Integer> listaApariciones = new ArrayList<>();
     
     public void AlgoritmoIngenuo(int n, int m, int k, ArrayList<String> listaAnimales,
             ArrayList<Integer> listaGrandezas, ArrayList<ArrayList <String>> apertura, ArrayList<ArrayList<ArrayList <String>>> partes){
@@ -45,22 +46,21 @@ public class AlgoritmoIngenuo {
     }
     
     public void Algortimo(){
-        ArrayList<Integer> listaApariciones;
 
         ArrayList<Integer>  escenaOrdenada;
-
         ArrayList <ArrayList <Integer>> parte = new ArrayList <>();
         ArrayList aperturaOrdenada;
         ArrayList espectaculoFinal;
-
         
         
-        ArrayList soluciones;
+        for(int i = 0; i < listaAnimales.size(); i++ ){
+            listaApariciones.add(0);
+        }
         
         //se ordenan los animales en cada una de las escenas de la apertura
         for(int i=0; i < (this.m-1)*k; i++){
             escenaString = (apertura.get(i));
-            //this.contarAnimal(escena);
+            contarAnimal(escenaString);
             escenaOrdenada=ordenarEscena(escenaString);
             parte.add(escenaOrdenada);
         }
@@ -84,7 +84,7 @@ public class AlgoritmoIngenuo {
 
                 for(int j = 0; j < k; j++){
                         escenaString = parteAux.get(j);
-                        //contarAnimal(escena[], listaAnimales, &listaApariciones[])
+                        contarAnimal(escenaString);
                         escenaOrdenada = ordenarEscena(escenaString);
 
                         parte.add(escenaOrdenada);
@@ -119,23 +119,29 @@ public class AlgoritmoIngenuo {
             int numParte= i +1;
             System.out.print("Parte "+numParte+" : "+espectaculoFinal.get(i)+"\n");
         }
-       
+        
+        System.out.print("Animal: "+ listaAnimales+ "\n");
+        System.out.print("Apariciones: "+ listaApariciones+ "\n");
         
         
         
         
         
-        // Al imprimir el resultado de cada parte sería por cada posición del espectaculoOrdenado  -> ejemplo: espectaculoOrdenado[0] es la primera parte ordenada.
+      // TOPE DEL CODIGO
 
-        //espectaculoFinal[] = ponerNombreEspectaculo(espectaculoOrdenado, listaAnimales, listaGrandezas); 
-
-
-        
         
         
         
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
     
     public ArrayList<Integer> ordenarEscena(ArrayList<String> escena){
         ArrayList<Integer> listaResultante = new ArrayList<>();
@@ -314,6 +320,28 @@ public class AlgoritmoIngenuo {
 
         
         return listaSolucion;
+    }
+    
+    
+    
+    public void contarAnimal(ArrayList<String> escena){
+        
+        String a1 = escena.get(0);
+        String a2 = escena.get(1);
+        String a3 = escena.get(2);
+        int posA1 = listaAnimales.indexOf(a1);
+        int posA2 = listaAnimales.indexOf(a2);
+        int posA3 = listaAnimales.indexOf(a3);
+        
+        int aparicionesA1 = listaApariciones.get(posA1);
+        int aparicionesA2 = listaApariciones.get(posA2);
+        int aparicionesA3 = listaApariciones.get(posA3);
+
+
+        listaApariciones.set(posA1, 1 + aparicionesA1);
+        listaApariciones.set(posA2, 1 + aparicionesA2);
+        listaApariciones.set(posA3, 1 + aparicionesA3);
+
     }
 
     
