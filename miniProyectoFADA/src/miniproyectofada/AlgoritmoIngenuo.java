@@ -15,12 +15,13 @@ public class AlgoritmoIngenuo {
     int n;
     int m;
     int k;
-    ArrayList listaAnimales;
-    ArrayList listaGrandezas;
-    ArrayList<ArrayList> apertura;
+    String[] listaAnimales;
+    int[] listaGrandezas;
+    int[] apariciones;
+    ArrayList<String[]> apertura;
     ArrayList<ArrayList> partes;
     
-    public void AlgoritmoIngenuo(int n, int m, int k, ArrayList listaAnimales,ArrayList listaGrandezas,ArrayList apertura,ArrayList partes){
+    public void AlgoritmoIngenuo(int n, int m, int k, String[] listaAnimales,int[] listaGrandezas,ArrayList apertura,ArrayList partes){
         this.n=n;
         this.m=m;
         this.k=k;
@@ -32,15 +33,47 @@ public class AlgoritmoIngenuo {
     
     public void OrdenarEscenas(){
         ArrayList listaApariciones;
-        ArrayList escenasOrdenadas;
-        ArrayList animalesOrdenados;
+        ArrayList espectaculoOrdenado;
+        ArrayList escenaOrdenada;
         ArrayList parteOrdenada;
-        ArrayList parte;
+        ArrayList parte=new ArrayList();
+        ArrayList aperturaOrdenada;
         
         //se ordenan los animales en cada una de las escenas de la apertura
         for(int i=0; i < (this.m-1)*k; i++){
-            ArrayList escena=this.apertura;
-            
+            String[] escena=this.apertura.get(i);
+            this.contarAnimal(escena);
+            escenaOrdenada=ordenarEscena(escena);
+            parte.set(i, escenaOrdenada);
         }
+        int[] aux;
+            
+        aux=ordenarParte();
+        
+        aperturaOrdenada=ponerNombres();
+        
+        
+    }
+    
+    public void contarAnimal(String[] escena){
+        
+    }
+    
+    public ArrayList ordenarEscena(String[] escena){
+        ArrayList a=new ArrayList();
+        a.add(1);
+        return a;
+    }
+    
+    public int[] ordenarParte(){
+        int[] resultado={1};
+        
+        return resultado;
+    }
+    
+    public ArrayList ponerNombres(){
+        ArrayList resultado=new ArrayList();
+        
+        return resultado;
     }
 }
