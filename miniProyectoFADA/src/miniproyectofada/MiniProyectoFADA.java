@@ -5,6 +5,7 @@
  */
 package miniproyectofada;
 
+
 import java.util.ArrayList;
 
 /**
@@ -18,16 +19,55 @@ public class MiniProyectoFADA {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        String[] animales={"gato","perro"};
-        System.out.println(animales[0]+ animales[1]);
-        int [] grandeza={2,2};
-        ArrayList<String[]> apertura=new ArrayList();
-        String[] dupla={"hola", "jeje"};
-        System.out.println(dupla[0]+ dupla[1]);
-        apertura.add(dupla);
-        System.out.println(apertura.get(0)[0]);
-        String [] partes={"jojo"};
-        //AlgoritmoIngenuo hola=AlgoritmoIngenuo(6,3,2,animales, grandeza, apertura ,partes);
+        
+        ArrayList<String> Animales = new ArrayList<String>();
+        ArrayList<Integer> Grandezas = new ArrayList<Integer>();
+        ArrayList<ArrayList <String>> Apertura = new ArrayList<ArrayList <String>>();
+        ArrayList<String> escena = new ArrayList<String>();
+        ArrayList<String> escenaAux = new ArrayList<String>();
+        
+        Animales.add("tapir");
+        Animales.add("nutria");
+        Animales.add("perro");
+        Animales.add("gato");
+        Animales.add("tiburon");
+        Animales.add("pez");
+        
+        Grandezas.add(1);
+        Grandezas.add(2);
+        Grandezas.add(3);
+        Grandezas.add(4);
+        Grandezas.add(5);
+        Grandezas.add(6);
+
+        
+        escena.add("pez");
+        escena.add("tapir");
+        escena.add("tiburon");
+        Apertura.add((ArrayList<String>) escena.clone());
+        escena.clear();
+        
+        escena.add("perro");
+        escena.add("nutria");
+        escena.add("gato");
+        Apertura.add((ArrayList<String>) escena.clone());
+        escena.clear();
+        
+        escena.add("tiburon");
+        escena.add("nutria");
+        escena.add("pez");
+        Apertura.add((ArrayList<String>) escena.clone());
+        escena.clear();
+        
+        escena.add("tapir");
+        escena.add("perro");
+        escena.add("pez");
+        Apertura.add((ArrayList<String>) escena.clone());
+        escena.clear();
+
+        
+        AlgoritmoIngenuo Algoritmo = new AlgoritmoIngenuo();
+        Algoritmo.AlgoritmoIngenuo(6, 3, 2, Animales, Grandezas, Apertura);
     }
     
 }
