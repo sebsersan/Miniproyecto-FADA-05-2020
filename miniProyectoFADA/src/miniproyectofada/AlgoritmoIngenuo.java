@@ -51,6 +51,8 @@ public class AlgoritmoIngenuo {
         ArrayList <ArrayList <Integer>> parte = new ArrayList <>();
         ArrayList aperturaOrdenada;
         ArrayList espectaculoFinal;
+        int numeroDeEscenas=0;
+        int grandezaTotal=0;
         
         
         for(int i = 0; i < listaAnimales.size(); i++ ){
@@ -69,6 +71,9 @@ public class AlgoritmoIngenuo {
         
         parteOrdenada = (ArrayList<ArrayList<Integer>>) listaResultados.get(0);
         grandezaPorEscena = (ArrayList<Integer>) listaResultados.get(1);
+        
+        numeroDeEscenas+=grandezaPorEscena.size();
+        grandezaTotal+=sumarGrandezas(grandezaPorEscena);
        
         
         aperturaOrdenada= ponerNombresParte(parteOrdenada, (m-1)*k);
@@ -94,7 +99,10 @@ public class AlgoritmoIngenuo {
                ordenarParte((ArrayList<ArrayList<Integer>>) parte.clone(), k);
                
                parteOrdenada = (ArrayList<ArrayList<Integer>>) listaResultados.get(0);
+               
                grandezaPorEscena = (ArrayList<Integer>) listaResultados.get(1);
+               numeroDeEscenas+=grandezaPorEscena.size();
+               grandezaTotal+=sumarGrandezas(grandezaPorEscena);
 
                espectaculo.add(parteOrdenada);
                // espectáculo = { {{1,2,3} {2,3,4} {2,4,5} {7,8,9}} , 
@@ -126,6 +134,15 @@ public class AlgoritmoIngenuo {
         
         
         
+        System.out.println(ParticipacionMaxMin(listaApariciones, listaAnimales).get(0));
+        System.out.println(ParticipacionMaxMin(listaApariciones, listaAnimales).get(1));
+        System.out.println(EscenaMaxMin(aperturaOrdenada));
+        float promedioGrandeza= (float)grandezaTotal/numeroDeEscenas;
+        System.out.println("El promedio de grandeza de todo el espectaculo fue de: "+ promedioGrandeza);
+        
+            
+         
+        
         
       // TOPE DEL CODIGO
 
@@ -135,8 +152,81 @@ public class AlgoritmoIngenuo {
         
     }
     
+    public int sumarGrandezas(ArrayList<Integer> GrandezaPorEscena){
+        int resultado=0;
+        
+        for(int i=0;i<grandezaPorEscena.size();i++){
+            resultado+=grandezaPorEscena.get(i);
+        }
+        
+        return resultado;
+    }
     
+    public String EscenaMaxMin(ArrayList<ArrayList<String>> aperturaOrdenada){
+        String resultado="";
+        
+        ArrayList<String> escenaMenor=new ArrayList();
+        escenaMenor=aperturaOrdenada.get(0);
+        
+        int aux=aperturaOrdenada.size()-1;
+        ArrayList<String> escenaMayor=new ArrayList();
+        escenaMayor=aperturaOrdenada.get(aux);
+
+        resultado="La escena de menor grandeza total fue la escena: "+ escenaMenor + "\n\n"
+                + "La escena de mayor grandeza total fue la escena: "+ escenaMayor + "\n"; 
+        
+        
+        return resultado;
+    }
     
+    public ArrayList<String> ParticipacionMaxMin(ArrayList<Integer> listaApariciones,ArrayList<String> listaAnimales){
+        String resultadoMasRepetido="";
+        String resultadoMenosRepetido="";
+        ArrayList<String> respuesta=new ArrayList();
+        
+        ArrayList<String> animalMasRepetido=new ArrayList();
+        ArrayList<String> animalMenosRepetido=new ArrayList();
+        int animalDeMasApariciones=max(listaApariciones);
+        int animalDeMenosApariciones=min(listaApariciones);
+        
+        for (int i=0; i<listaApariciones.size();i++){
+            int index=listaApariciones.get(i);
+            if(animalDeMasApariciones==index){
+                
+                String animal=listaAnimales.get(i);
+                
+                animalMasRepetido.add(animal);
+                
+            }
+            if(animalDeMenosApariciones==index){
+
+                
+                String animal=listaAnimales.get(i);
+                
+                animalMenosRepetido.add(animal);
+            }
+        }
+        
+        //Output del animal mas repetido
+        resultadoMasRepetido="El animal que participo en mas escenas fue:\n";
+        for (int i=0; i<animalMasRepetido.size();i++){
+            resultadoMasRepetido= resultadoMasRepetido + animalMasRepetido.get(i)+"\n";
+        }
+        resultadoMasRepetido=resultadoMasRepetido+ "con " + animalDeMasApariciones + " escenas";
+        
+        
+        //Output del animal menos repetido
+        resultadoMenosRepetido="El animal que participo en menos escenas fue:\n";
+        for (int i=0; i<animalMenosRepetido.size();i++){
+            resultadoMenosRepetido= resultadoMenosRepetido + animalMenosRepetido.get(i)+"\n";
+        }
+        resultadoMenosRepetido=resultadoMenosRepetido+ "con " + animalDeMenosApariciones + " escenas";
+        
+        respuesta.add(resultadoMasRepetido);
+        respuesta.add(resultadoMenosRepetido);
+        
+        return respuesta;
+    } 
     
     
     
@@ -180,6 +270,16 @@ public class AlgoritmoIngenuo {
             }
         }
         return maxAux;
+    }
+    
+    public int min(ArrayList<Integer> lista){
+        int min = lista.get(1);
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i) < min) {
+                min = lista.get(i);
+            }
+        }
+        return min;
     }
     
     
