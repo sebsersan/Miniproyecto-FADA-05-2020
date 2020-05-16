@@ -96,11 +96,46 @@ public class MiniProyectoFADA {
         escena.clear();
         partes.add((ArrayList<ArrayList<String>>) parte.clone());
 
+        TextFile nuevo= new TextFile();
+        ArrayList<ArrayList<String>> inputs=nuevo.cargarDatos();
+        //System.out.println(inputs.get(0));
+        ArrayList<ArrayList<String>> partesString=new ArrayList();
+        
+        for(int i=0; i<inputs.size();i++){
+            ArrayList<String> input=inputs.get(i);
+            int n=Integer.parseInt(input.get(0));
+            int m=Integer.parseInt(input.get(1));
+            int k=Integer.parseInt(input.get(2));
+            ArrayList<String> apertura=new ArrayList();
+            ArrayList<ArrayList <String>> partesAux=new ArrayList(); 
+            //System.out.println(input.get(5));
+            for(int j=3;j<5;j++){
+                String[] aux;
+                ArrayList listas=new ArrayList();
+                aux=input.get(j).replace("{", "").replace("}", "").split(",");
+                for(int h=0;h<aux.length;h++){
+                    listas.add(aux[h]);
+                }
+                //System.out.println(listas);
+                partesString.add((ArrayList)listas.clone());
+                listas.clear();
+                //System.out.println(listas);
+            }
+            for(int j=5;j<input.size();j++){
+                String[] aux;
+                ArrayList<String> listas=new ArrayList();
+                partesAux=new ArrayList();
+                aux=input.get(j).replace("{", "").replace("}", "").split(",");
+                for(int h=0;h<aux.length;h++){
+                    listas.add(aux[h]);
+                }
+            }
+            System.out.println(partesString);
+        }
         
         
-        
-        AlgoritmoIngenuo Algoritmo = new AlgoritmoIngenuo();
-        Algoritmo.AlgoritmoIngenuo(6, 3, 2, Animales, Grandezas, Apertura, partes);
+        //AlgoritmoIngenuo Algoritmo = new AlgoritmoIngenuo();
+        //Algoritmo.AlgoritmoIngenuo(6, 3, 2, Animales, Grandezas, Apertura, partes);
     }
     
 }
