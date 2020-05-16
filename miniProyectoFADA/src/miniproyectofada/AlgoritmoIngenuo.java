@@ -139,6 +139,7 @@ public class AlgoritmoIngenuo {
         System.out.println(EscenaMaxMin(aperturaOrdenada));
         float promedioGrandeza= (float)grandezaTotal/numeroDeEscenas;
         System.out.println("El promedio de grandeza de todo el espectaculo fue de: "+ promedioGrandeza);
+        System.out.println("======================================================================");
         
             
          

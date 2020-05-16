@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 public class TextFile {
     
-    String rutaArchivo="C:\\Users\\Jesús\\Desktop\\entrada.txt";
+    String rutaArchivo="C:\\Users\\Jesús\\Desktop\\proyectoFADA\\Miniproyecto-FADA-05-2020\\miniProyectoFADA\\src\\entrada.txt";
     
     FileInputStream fRutaArchivo;
 
