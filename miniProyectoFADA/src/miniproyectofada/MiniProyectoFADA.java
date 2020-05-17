@@ -7,6 +7,7 @@ package miniproyectofada;
 
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -36,6 +37,20 @@ public class MiniProyectoFADA {
         ArrayList<ArrayList<String>> inputs=nuevo.cargarDatos();
         
         ArrayList<ArrayList<String>> partesString=new ArrayList();
+        
+        System.out.println ("Empezamos el programa");
+        System.out.println ("1. Ordenamiento QuickSort (O(n^2))\n"
+                          + "2. Ordenamiento MergeSort (O(n*Log n))\n"
+                          + "3. Ordenamiento RadixSort(O(n))");
+        
+        System.out.println ("Por favor seleccione el método de ordenamiento a usar(Escriba 1, 2 o 3) y presione Enter:");
+
+        String entradaTeclado = "";
+        Scanner entradaEscaner = new Scanner (System.in); //Creación de un objeto Scanner
+
+        entradaTeclado = entradaEscaner.nextLine (); //Invocamos un método sobre un objeto Scanner
+
+        tipoDeOrdenamiento=Integer.parseInt(entradaTeclado);
         
         //For de los Input
         for(int i=0; i<inputs.size();i++){
