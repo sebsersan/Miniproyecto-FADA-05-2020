@@ -27,3 +27,32 @@ apertura = {{tapir, pulpo, perro}, {mono, perro, serpiente}, {lombriz, aguila, g
 parte = {{mono, gorilla, cangrejo}, {tapir, pulpo, perro}, {lombriz, aguila, gato}, {gato, cucaracha, libelula}, {marmota, pez, pulpo}};
 parte = {{tiburon, pulpo, leon}, {piraña, gato, libelula}, {leon, delfin, serpiente}, {mono, perro, serpiente}, {gato, marmota, gorilla}};
 // input
+n=99;
+m=12;
+k=3;
+animales = {puppy, tiger, blue crab, quagga, hyena, squirrel, chimpanzee, hedgehog, prairie, dog, snake, addax, whale, porpoise, shrew,musk deer,badger,baboon,mustang,parrot,marmoset,crocodile,frog,alpaca,crow,sloth,pony,panda,bighorn,bison,beaver,wombat,woodchuck,musk-ox,oryx,polar bear,hartebeest,coati,hare,mountain goat,rat,lamb,seal,yak,basilisk,ermine,muskrat,camel,buffalo,opossum,armadillo,jaguar,stallion,alligator,ocelot,bear,marten,okapi,panther,fish,donkey,dung beetle,guinea pig,cat,gemsbok,warthog,dingo,guanaco,bull,silver fox,lovebird,ground hog,gorilla,dromedary,pig,octopus,aardvark,porcupine,bat,monkey,leopard,cougar,zebra,thorny devil,jerboa,burro,bunny,hippopotamus,lizard,boar,skunk,gnu,antelope,mandrill,walrus,newt,peccary,mynah bird,canary,mouse}
+grandezas = {11,55,89,17,62,23,95,7,41,97,66,58,12,85,87,71,93,25,63,42,65,94,49,81,45,21,15,60,6,2,64,43,82,84,18,100,22,67,38,31,5,73,37,3,14,27,86,29,13,72,91,76,68,75,19,96,69,54,79,92,26,10,35,74,88,90,83,44,77,47,53,80,50,32,48,36,8,33,9,57,78,99,46,59,30,20,98,28,52,1,56,61,24,70,4,34,40,39,16}
+apertura = {{puppy, tiger, blue crab},{quagga, hyena, squirrel},{chimpanzee, hedgehog, prairie},{dog, snake, addax},{whale, porpoise, shrew},{musk deer,badger,baboon},{mustang,parrot,marmoset},{crocodile,frog,alpaca},{crow,sloth,pony},{panda,bighorn,bison},{beaver,wombat,woodchuck},{musk-ox,oryx,polar bear},{hartebeest,coati,hare},{mountain goat,rat,lamb},{seal,yak,basilisk},{ermine,muskrat,camel},{buffalo,opossum,armadillo},{jaguar,stallion,alligator},{ocelot,bear,marten},{okapi,panther,fish},{donkey,dung beetle,guinea pig},{cat,gemsbok,warthog},{dingo,guanaco,bull},{silver fox,lovebird,ground hog},{gorilla,dromedary,pig},{octopus,aardvark,porcupine},{bat,monkey,leopard},{cougar,zebra,thorny devil},{jerboa,burro,bunny},{hippopotamus,lizard,boar},{skunk,gnu,antelope},{mandrill,walrus,newt},{peccary,mynah bird,canary}}
+parte = {{puppy, tiger, blue crab},{musk deer,badger,baboon},{mustang,parrot,marmoset}}
+parte = {{mountain goat,rat,lamb},{buffalo,opossum,armadillo},{cat,gemsbok,warthog}}
+parte = {{octopus,aardvark,porcupine},{jerboa,burro,bunny},{skunk,gnu,antelope}}
+parte = {{quagga, hyena, squirrel},{hartebeest,coati,hare},{gorilla,dromedary,pig}}
+parte = {{whale, porpoise, shrew},{musk-ox,oryx,polar bear},{jaguar,stallion,alligator}}
+parte = {{bat,monkey,leopard},{mandrill,walrus,newt},{ocelot,bear,marten}}
+parte = {{crocodile,frog,alpaca},{peccary,mynah bird,canary},{panda,bighorn,bison}}
+parte = {{chimpanzee, hedgehog, prairie},{cougar,zebra,thorny devil},{seal,yak,basilisk}}
+parte = {{hippopotamus,lizard,boar},{dog, snake, addax},{ermine,muskrat,camel}}
+parte = {{crow,sloth,pony},{silver fox,lovebird,ground hog},{okapi,panther,fish}}
+parte= {{donkey,dung beetle,guinea pig},{beaver,wombat,woodchuck},{dingo,guanaco,bull}}
+// input
+n=48;
+m=5;
+k=4;
+animales = {puppy, tiger, blue crab, quagga, hyena, squirrel, chimpanzee, hedgehog, prairie, dog, snake, addax, whale, porpoise, shrew,musk deer,badger,baboon,mustang,parrot,marmoset,crocodile,frog,alpaca,crow,sloth,pony,panda,bighorn,bison,beaver,wombat,woodchuck,musk-ox,oryx,polar bear,hartebeest,coati,hare,mountain goat,rat,lamb,seal,yak,basilisk,ermine,muskrat,camel}
+grandezas = {28, 9, 41, 34, 14, 6, 10 ,13 ,16, 33 , 1, 38 ,15 ,12 ,17, 5, 7, 43,2,29,47,46,39,4,20,30,36,19,23,42,48,11,35,26,31,37,44,32,25,8, 21,3,40,22,45,24,18,27}
+apertura = {{puppy, tiger, blue crab},{quagga, hyena, squirrel},{chimpanzee, hedgehog, prairie},{dog, snake, addax},{whale, porpoise, shrew},{musk deer,badger,baboon},{mustang,parrot,marmoset},{crocodile,frog,alpaca},{crow,sloth,pony},{panda,bighorn,bison},{beaver,wombat,woodchuck},{musk-ox,oryx,polar bear},{hartebeest,coati,hare},{mountain goat,rat,lamb},{seal,yak,basilisk},{ermine,muskrat,camel}}
+parte = {{mustang,parrot,marmoset},{crow,sloth,pony},{dog, snake, addax},{crocodile,frog,alpaca}}
+parte = {{mountain goat,rat,lamb},{seal,yak,basilisk},{panda,bighorn,bison},{hartebeest,coati,hare}}
+parte = {{beaver,wombat,woodchuck},{quagga, hyena, squirrel},{whale, porpoise, shrew},{chimpanzee, hedgehog, prairie}}
+parte = {{puppy, tiger, blue crab},{ermine,muskrat,camel},{musk-ox,oryx,polar bear},{musk deer,badger,baboon}}
+// input
