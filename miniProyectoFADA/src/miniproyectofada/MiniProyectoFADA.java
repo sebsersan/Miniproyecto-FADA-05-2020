@@ -50,7 +50,7 @@ public class MiniProyectoFADA {
 
         entradaTeclado = entradaEscaner.nextLine (); //Invocamos un método sobre un objeto Scanner
 
-        tipoDeOrdenamiento=Integer.parseInt(entradaTeclado);
+        tipoDeOrdenamiento=Integer.parseInt(entradaTeclado)-1;
         
         //For de los Input
         for(int i=0; i<inputs.size();i++){
@@ -124,7 +124,11 @@ public class MiniProyectoFADA {
                 //System.out.println(partes);
                 
                 AlgoritmoIngenuo Algoritmo = new AlgoritmoIngenuo();
+                long startTime =  System.currentTimeMillis();
                 Algoritmo.AlgoritmoIngenuo(n, m, k, Animales, Grandezas, Apertura, partes, tipoDeOrdenamiento);
+                long endTime =  System.currentTimeMillis();
+                
+                System.out.println(("tiempo de ejecución: " + (endTime-startTime) + " milisegundo(s)"));
             
         }
         
