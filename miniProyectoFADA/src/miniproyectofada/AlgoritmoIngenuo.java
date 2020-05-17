@@ -60,6 +60,7 @@ public class AlgoritmoIngenuo {
         int grandezaTotal=0;
         
         
+        //se inicializa la lista de apariciones (se llena de 0's)
         for(int i = 0; i < listaAnimales.size(); i++ ){
             listaApariciones.add(0);
         }
@@ -72,6 +73,7 @@ public class AlgoritmoIngenuo {
             parte.add(escenaOrdenada);
         }
         
+        //se ordenan las escenas de la apertura
         ordenarParte(parte, (m-1)*k);
         
         parteOrdenada = (ArrayList<ArrayList<Integer>>) listaResultados.get(0);
@@ -86,7 +88,6 @@ public class AlgoritmoIngenuo {
         
         listaResultados.clear();
         parte.clear();
-        //aperturaOrdenada=ponerNombres();
         
         // Ordenar escenas individuales de las partes
         for (int i=0; i < m-1; i++){
@@ -100,7 +101,7 @@ public class AlgoritmoIngenuo {
                         parte.add(escenaOrdenada);
                 }
 
-
+               //se ordenan las escenas de una parte
                ordenarParte((ArrayList<ArrayList<Integer>>) parte.clone(), k);
                
                parteOrdenada = (ArrayList<ArrayList<Integer>>) listaResultados.get(0);
@@ -131,12 +132,7 @@ public class AlgoritmoIngenuo {
             
             int numParte= i +1;
             System.out.print("Parte "+numParte+" : "+espectaculoFinal.get(i)+"\n");
-        }
-        
-        //System.out.print("Animal: "+ listaAnimales+ "\n");
-        //System.out.print("Apariciones: "+ listaApariciones+ "\n");
-        
-        
+        }     
         
         
         System.out.println(ParticipacionMaxMin(listaApariciones, listaAnimales).get(0));
@@ -144,7 +140,6 @@ public class AlgoritmoIngenuo {
         System.out.println(EscenaMaxMin(aperturaOrdenada));
         float promedioGrandeza= (float)grandezaTotal/numeroDeEscenas;
         System.out.println("El promedio de grandeza de todo el espectaculo fue de: "+ promedioGrandeza);
-        System.out.println("======================================================================");
         
             
          
@@ -157,7 +152,8 @@ public class AlgoritmoIngenuo {
         
         
     }
-    
+    //Recibe una lista con las grandezas de cada escena de una parte y retorna la suma de las grandezas
+    //{12, 4, 8 20} --> 44 
     public int sumarGrandezas(ArrayList<Integer> GrandezaPorEscena){
         int resultado=0;
         
@@ -168,6 +164,8 @@ public class AlgoritmoIngenuo {
         return resultado;
     }
     
+    //Recibe la apertura ordenada y retorna la primer escena y la ultima
+    //[[ciempies, libelula, gato], [ciempies, gato, tapir], [gato, perro, tapir], [perro, tapir, nutria]] --> String de la escena menor y mayor grandeza
     public String EscenaMaxMin(ArrayList<ArrayList<String>> aperturaOrdenada){
         String resultado="";
         
@@ -185,6 +183,8 @@ public class AlgoritmoIngenuo {
         return resultado;
     }
     
+    //Recibe la lista de apariciones y la lista de animales, retorna un string con el animal de menos y mas apariciones
+    //[2, 0, 3 ,3 ,2, 4] && [tapir,nutria,conejo,rata,sapo,tigre]  --> nutria y tigre 
     public ArrayList<String> ParticipacionMaxMin(ArrayList<Integer> listaApariciones,ArrayList<String> listaAnimales){
         String resultadoMasRepetido="";
         String resultadoMenosRepetido="";
@@ -238,7 +238,8 @@ public class AlgoritmoIngenuo {
     
     
     
-    
+    // recibe una escena y retorna la escena organizada según la grandeza de los animales de forma ascendente
+    //{tapir,tigre,sapo} --> {sapo,tapir,tigre}
     public ArrayList<Integer> ordenarEscena(ArrayList<String> escena){
         ArrayList<Integer> listaResultante = new ArrayList<>();
         
@@ -267,7 +268,7 @@ public class AlgoritmoIngenuo {
         
         return listaResultante;
     }
-    
+    //Recibe una lista y retorna el valor maximo
     public int max(ArrayList<Integer> lista){
         int maxAux = 0;
         for (int i = 0; i < lista.size(); i++) {
@@ -277,7 +278,7 @@ public class AlgoritmoIngenuo {
         }
         return maxAux;
     }
-    
+    //Recibe una lista y retorna el valor minimo
     public int min(ArrayList<Integer> lista){
         int min = lista.get(1);
         for (int i = 0; i < lista.size(); i++) {
@@ -288,7 +289,7 @@ public class AlgoritmoIngenuo {
         return min;
     }
     
-    
+    //Recibe una parte del espectáculo y organiza las escenas de este, segun su grandeza total, de forma ascendente.
     public void ordenarParte(ArrayList<ArrayList <Integer>> parte, int cantidadEscenas){
         ArrayList<Integer> listaValoresMax = new ArrayList<>();
         
@@ -325,7 +326,9 @@ public class AlgoritmoIngenuo {
     }
     
     
-    
+    //Recibe un espectaculo (la lista de las partes) y retorna la lista con las partes ordenadas según su grandeza total, de forma ascendente 
+    //  Recibe {{{1, 2, 9}, {2,3,4 }}, {{4,5,2}, {1, 3, 2}}}
+    // Retorna {{{4,5,2}, {1, 3, 2}}, {{1, 2, 9}, {2,3,4 }}}
     public ArrayList<ArrayList<ArrayList <Integer>>> ordenarEspectaculo(ArrayList<ArrayList<ArrayList <Integer>>> espectaculoAux,
             ArrayList<ArrayList <Integer>> grandezaAux){
         
@@ -364,7 +367,9 @@ public class AlgoritmoIngenuo {
     
     
     
-    
+    //Recibe una parte que contiene en las escenas las grandezas de los animales, retorna la parte con los nombres 
+    //de los animales correspondientes a dicha grandeza.
+    //recibe {{1, 2, 3} {7,5,4}} --> {{perro, gato, delfin}, {tiburon, marmota, cangrejo}}
     public ArrayList ponerNombresParte(ArrayList<ArrayList <Integer>> parteOrdenada, int cantidadEscenas){
         ArrayList<ArrayList<String>> listaSolucion = new ArrayList<>();
         ArrayList<String> listaSubSolucion = new ArrayList<>();
@@ -400,7 +405,9 @@ public class AlgoritmoIngenuo {
     }
     
     
-    
+    //Recibe un espectaculo que contiene las grandezas de los animales -> retorna el espectaculo 
+    //con los nombres de los animales correspondientes a dicha grandeza
+    //espectaculo recibe {{{4,5,2}, {1, 3, 2}}, {{1, 2, 9}, {2,3,4 }}} --> {{{perro, gato, delfin}, {cangrejo, marmota, delfin}}, {{cangrejo, delfin, tiburon}, {delfin, marmota, perro}}} 
     public ArrayList ponerNombresEspectaculo(ArrayList<ArrayList<ArrayList <Integer>>> espectaculoAux){
         ArrayList<ArrayList<ArrayList<String>>> listaSolucion = new ArrayList<>();
         ArrayList<ArrayList<String>> parteNombrada = new ArrayList<>();
@@ -418,7 +425,7 @@ public class AlgoritmoIngenuo {
     }
     
     
-    
+    //Recibe una esccena y actualiza la lista de apariciones de cada animal.
     public void contarAnimal(ArrayList<String> escena){
         
         String a1 = escena.get(0);

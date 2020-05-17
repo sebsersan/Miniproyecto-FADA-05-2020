@@ -60,7 +60,7 @@ public class MiniProyectoFADA {
             int k=Integer.parseInt(input.get(2));
             ArrayList<String> apertura=new ArrayList();
             ArrayList<ArrayList <String>> partesAux=new ArrayList(); 
-            //System.out.println(input.get(5));
+
             
             //For de animales y grandezas
                 String[] aux;
@@ -69,8 +69,7 @@ public class MiniProyectoFADA {
                 for(int h=0;h<aux.length;h++){
                     listas.add(aux[h]);
                 }
-                //System.out.println(listas);
-                //System.out.println(listas);
+
                 Animales=(ArrayList<String>) listas.clone();
                 listas.clear();
                 
@@ -78,10 +77,10 @@ public class MiniProyectoFADA {
                 for(int h=0;h<aux.length;h++){
                     listas.add(Integer.parseInt(aux[h]));
                 }
-                //System.out.println(listas);
+
                 Grandezas=(ArrayList<Integer>) listas.clone();
                 listas.clear();
-                //System.out.println(listas);
+
                 
             
             
@@ -99,7 +98,7 @@ public class MiniProyectoFADA {
                         sublistas.add(aux[h]);
                         
                         lista.add((ArrayList<String>)sublistas.clone());
-                        //System.out.println(lista);
+
                         sublistas.clear();
                     }else{
                         
@@ -111,17 +110,16 @@ public class MiniProyectoFADA {
                 }
                 todasLasPartes.add((ArrayList<ArrayList<String>>) lista.clone());
                 lista.clear();
-                //System.out.println(todasLasPartes);
+
                 
                 
                 
             }
-            //System.out.println(partesString);
+            
             Apertura=todasLasPartes.get(0);
             todasLasPartes.remove(Apertura);
             partes=(ArrayList<ArrayList<ArrayList<String>>>) todasLasPartes.clone();
                 todasLasPartes.clear();
-                //System.out.println(partes);
                 
                 AlgoritmoIngenuo Algoritmo = new AlgoritmoIngenuo();
                 long startTime =  System.nanoTime();
@@ -129,11 +127,9 @@ public class MiniProyectoFADA {
                 long endTime =  System.nanoTime();
                 
                 System.out.println(("tiempo de ejecución: " + (endTime-startTime) + " milisegundo(s)"));
+                System.out.println("======================================================================");
             
         }
-        
-        
-        //AlgoritmoIngenuo Algoritmo = new AlgoritmoIngenuo();
-        //Algoritmo.AlgoritmoIngenuo(6, 3, 2, Animales, Grandezas, Apertura, partes);
+
     }
 }
