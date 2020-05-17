@@ -192,8 +192,19 @@ public class AlgoritmosDeOrdenamiento {
           A.set(i, outputA.get(i));
           B.set(i, outputB.get(i));
         }
-  }
+    }
 
+    
+    // Main function to implement radix sort
+    void radixSort(int size) {
+      // Get maximum element
+      int maxNumber = max(A);
+
+      // Apply counting sort to sort elements based on place value.
+      for (int place = 1; maxNumber / place > 0; place *= 10)
+        countingSort(size, place);
+    }
+    
     // Function to get the largest element from an array
     public int max(ArrayList<Integer> lista){
         int maxAux = 0;
@@ -205,17 +216,8 @@ public class AlgoritmosDeOrdenamiento {
         return maxAux;
     }
 
-    // Main function to implement radix sort
-    void radixSort(int size) {
-      // Get maximum element
-      int maxNumber = max(A);
-
-      // Apply counting sort to sort elements based on place value.
-      for (int place = 1; maxNumber / place > 0; place *= 10)
-        countingSort(size, place);
-    }
     
-    public ArrayList RadiuxDosListas(ArrayList arr1, ArrayList<Integer> arr2, int size){
+    public ArrayList RadixDosListas(ArrayList arr1, ArrayList<Integer> arr2, int size){
         B = arr1;
         A = arr2;
         radixSort(size);
