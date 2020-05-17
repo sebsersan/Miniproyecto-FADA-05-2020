@@ -18,3 +18,12 @@ parte = {{caiman, capibara, loro}, {tigre, loro, capibara}, {tigre, cebra, pante
 parte = {{panteranegra, cocodrilo, loro}, {leon, panteranegra, cebra}, {cocodrilo, capibara, loro}}
 parte = {{boa, caiman, capibara}, {leon, caiman, loro}, {leon, cocodrilo, boa}}
 // input
+n = 20;
+m = 3;
+k = 5;
+animales = {gato, libelula, cangrejo, nutria, perro, tapir, delfin, tiburon, pez, marmota, leon, cucaracha, tigre, piraña, pulpo, mono, gorilla, serpiente, lombriz, aguila};
+grandezas = {3, 2, 1, 6, 4, 5, 7, 9, 8, 10, 20, 19, 12, 11, 13, 18, 17, 16, 15, 14};
+apertura = {{tapir, pulpo, perro}, {mono, perro, serpiente}, {lombriz, aguila, gato}, {gato, cucaracha, libelula}, {leon, delfin, serpiente}, {gato, marmota, gorilla}, {piraña, gato, libelula} , {tiburon, pulpo, leon}, {marmota, pez, pulpo}, {mono, gorilla, cangrejo}};
+parte = {{mono, gorilla, cangrejo}, {tapir, pulpo, perro}, {lombriz, aguila, gato}, {gato, cucaracha, libelula}, {marmota, pez, pulpo}};
+parte = {{tiburon, pulpo, leon}, {piraña, gato, libelula}, {leon, delfin, serpiente}, {mono, perro, serpiente}, {gato, marmota, gorilla}};
+// input

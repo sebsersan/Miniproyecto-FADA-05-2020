@@ -124,9 +124,9 @@ public class MiniProyectoFADA {
                 //System.out.println(partes);
                 
                 AlgoritmoIngenuo Algoritmo = new AlgoritmoIngenuo();
-                long startTime =  System.currentTimeMillis();
+                long startTime =  System.nanoTime();
                 Algoritmo.AlgoritmoIngenuo(n, m, k, Animales, Grandezas, Apertura, partes, tipoDeOrdenamiento);
-                long endTime =  System.currentTimeMillis();
+                long endTime =  System.nanoTime();
                 
                 System.out.println(("tiempo de ejecución: " + (endTime-startTime) + " milisegundo(s)"));
             
