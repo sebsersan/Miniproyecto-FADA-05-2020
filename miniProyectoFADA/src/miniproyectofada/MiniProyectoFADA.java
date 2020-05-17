@@ -27,78 +27,11 @@ public class MiniProyectoFADA {
         ArrayList<ArrayList<ArrayList <String>>> partes = new ArrayList<>();
         ArrayList<ArrayList <String>> parte = new ArrayList<>();
         ArrayList<ArrayList<ArrayList<String>>> todasLasPartes=new ArrayList();
-        
-        Animales.add("gato");
-        Animales.add("libelula");
-        Animales.add("ciempies");
-        Animales.add("nutria");
-        Animales.add("perro");
-        Animales.add("tapir");
-        
-        Grandezas.add(3);
-        Grandezas.add(2);
-        Grandezas.add(1);
-        Grandezas.add(6);
-        Grandezas.add(4);
-        Grandezas.add(5);
+        int tipoDeOrdenamiento = 1;
+                // 0    -> quickSort
+                // 1    -> mergeSort
+                // 2    -> radixSort
 
-        
-        escena.add("tapir");
-        escena.add("nutria");
-        escena.add("perro");
-        Apertura.add((ArrayList<String>) escena.clone());
-        escena.clear();
-        
-        escena.add("tapir");
-        escena.add("perro");
-        escena.add("gato");
-        Apertura.add((ArrayList<String>) escena.clone());
-        escena.clear();
-        
-        escena.add("ciempies");
-        escena.add("tapir");
-        escena.add("gato");
-        Apertura.add((ArrayList<String>) escena.clone());
-        escena.clear();
-        
-        escena.add("gato");
-        escena.add("ciempies");
-        escena.add("libelula");
-        Apertura.add((ArrayList<String>) escena.clone());
-        escena.clear();
-        
-        // ----------------------------------- PARTES
-        escena.add("tapir");
-        escena.add("nutria");
-        escena.add("perro");
-        parte.add((ArrayList<String>) escena.clone());
-        escena.clear();
-        
-        escena.add("ciempies");
-        escena.add("tapir");
-        escena.add("gato");
-        parte.add((ArrayList<String>) escena.clone());
-        escena.clear();
-        
-        partes.add((ArrayList<ArrayList<String>>) parte.clone());
-        
-        parte.clear();
-        
-        escena.add("gato");
-        escena.add("ciempies");
-        escena.add("libelula");
-        parte.add((ArrayList<String>) escena.clone());
-        escena.clear();
-        
-        escena.add("tapir");
-        escena.add("perro");
-        escena.add("gato");
-        parte.add((ArrayList<String>) escena.clone());
-        escena.clear();
-        partes.add((ArrayList<ArrayList<String>>) parte.clone());
-
-        Animales.clear();
-        Grandezas.clear();
         TextFile nuevo= new TextFile();
         ArrayList<ArrayList<String>> inputs=nuevo.cargarDatos();
         
@@ -176,7 +109,7 @@ public class MiniProyectoFADA {
                 //System.out.println(partes);
                 
                 AlgoritmoIngenuo Algoritmo = new AlgoritmoIngenuo();
-                Algoritmo.AlgoritmoIngenuo(n, m, k, Animales, Grandezas, Apertura, partes);
+                Algoritmo.AlgoritmoIngenuo(n, m, k, Animales, Grandezas, Apertura, partes, tipoDeOrdenamiento);
             
         }
         

@@ -15,6 +15,7 @@ public class AlgoritmoIngenuo {
     int n;
     int m;
     int k;
+    int tipoOrdenamiento;
     ArrayList<String> listaAnimales;
     ArrayList<Integer> listaGrandezas;
     ArrayList<Integer> apariciones;
@@ -31,9 +32,11 @@ public class AlgoritmoIngenuo {
     ArrayList<ArrayList<ArrayList <Integer>>> espectaculo = new ArrayList<>();
     ArrayList<ArrayList<ArrayList <Integer>>> espectaculoOrdenado = new ArrayList<>();
     ArrayList<Integer> listaApariciones = new ArrayList<>();
+    AlgoritmosDeOrdenamiento ordenamiento = new AlgoritmosDeOrdenamiento();;
+    
     
     public void AlgoritmoIngenuo(int n, int m, int k, ArrayList<String> listaAnimales,
-            ArrayList<Integer> listaGrandezas, ArrayList<ArrayList <String>> apertura, ArrayList<ArrayList<ArrayList <String>>> partes){
+            ArrayList<Integer> listaGrandezas, ArrayList<ArrayList <String>> apertura, ArrayList<ArrayList<ArrayList <String>>> partes, int tipoOrdenamiento){
         this.n=n;
         this.m=m;
         this.k=k;
@@ -41,8 +44,10 @@ public class AlgoritmoIngenuo {
         this.listaGrandezas=listaGrandezas;
         this.apertura=apertura;
         this.partes= partes;
+        this.tipoOrdenamiento = tipoOrdenamiento;
+        this.ordenamiento = ordenamiento;
         this.Algortimo();
-        
+
     }
     
     public void Algortimo(){
@@ -75,7 +80,7 @@ public class AlgoritmoIngenuo {
         numeroDeEscenas+=grandezaPorEscena.size();
         grandezaTotal+=sumarGrandezas(grandezaPorEscena);
        
-        
+               
         aperturaOrdenada= ponerNombresParte(parteOrdenada, (m-1)*k);
         System.out.print("Apertura ordenada: "+aperturaOrdenada+"\n");
         
@@ -128,8 +133,8 @@ public class AlgoritmoIngenuo {
             System.out.print("Parte "+numParte+" : "+espectaculoFinal.get(i)+"\n");
         }
         
-        System.out.print("Animal: "+ listaAnimales+ "\n");
-        System.out.print("Apariciones: "+ listaApariciones+ "\n");
+        //System.out.print("Animal: "+ listaAnimales+ "\n");
+        //System.out.print("Apariciones: "+ listaApariciones+ "\n");
         
         
         
@@ -297,50 +302,26 @@ public class AlgoritmoIngenuo {
             listaValoresMax.add(aTotal);
         }
         
-        QuickSortDosListas(parte, (ArrayList<Integer>) listaValoresMax.clone(), 0, cantidadEscenas-1);
+        
+        if(tipoOrdenamiento == 0){
+            listaResultados = ordenamiento.QuickSortDosListas(parte, (ArrayList<Integer>) listaValoresMax.clone(), 0, cantidadEscenas-1);
+
+        }
+        if(tipoOrdenamiento == 1){
+            
+            listaResultados = ordenamiento.MergeDosListas(parte, (ArrayList<Integer>) listaValoresMax.clone(), 0, cantidadEscenas-1);
+
+        }
+        if(tipoOrdenamiento == 2){
+            
+        }
+        
         
         listaValoresMax.clear();
         
         
     }
     
-    public void QuickSortDosListas(ArrayList B,ArrayList<Integer> A,int izq,int der){
-	
-        int pivote=A.get(izq);   // tomamos primer elemento como pivote
-        
-        int i=izq;               // i realiza la búsqueda de izquierda a derecha
-        int j=der;              // j realiza la búsqueda de derecha a izquierda
-        int aux;
-        ArrayList <Integer> aux2;
-        ArrayList <Integer> pivote2 = (ArrayList <Integer>) B.get(izq);
-        
-        while(i<j){                      // mientras no se crucen las búsquedas
-           while(A.get(i)<=pivote && i<j) i++;    // busca elemento mayor que pivote
-           while(A.get(j)>pivote) j--;             // busca elemento menor que pivote
-           if (i<j) {                                  // si no se han cruzado                      
-               aux= A.get(i);                        // los intercambia
-               A.set(i, A.get(j));
-               
-                aux2 = (ArrayList<Integer>) B.get(i);
-                B.set(i,B.get(j));
-
-               A.set(j, aux);
-               
-                B.set(j, aux2);
-           }
-         }
-         A.set(izq,A.get(j)); // se coloca el pivote en su lugar de forma que tendremos
-         B.set(izq,B.get(j));
-         A.set(j,pivote); // los menores a su izquierda y los mayores a su derecha
-         B.set(j,pivote2);
-         if(izq<j-1)
-            QuickSortDosListas(B, A,izq,j-1); // ordenamos subarray izquierdo
-         if(j+1 <der)
-            QuickSortDosListas(B, A,j+1,der); // ordenamos subarray derecho
-
-        listaResultados.add(B);
-        listaResultados.add(A);
-}
     
     
     public ArrayList<ArrayList<ArrayList <Integer>>> ordenarEspectaculo(ArrayList<ArrayList<ArrayList <Integer>>> espectaculoAux,
@@ -361,7 +342,17 @@ public class AlgoritmoIngenuo {
 		
         }
         listaResultados.clear();
-        QuickSortDosListas(espectaculoAux, listaValoresMax, 0,  m-1-1);
+        
+        if(tipoOrdenamiento == 0){
+            listaResultados = ordenamiento.QuickSortDosListas(espectaculoAux, listaValoresMax, 0,  m-1-1);
+        }
+        if(tipoOrdenamiento == 1){
+            listaResultados = ordenamiento.MergeDosListas(espectaculoAux, listaValoresMax, 0,  m-1-1);
+        }
+        if(tipoOrdenamiento == 2){
+            
+        }
+        
         espectaculoOrdenado = (ArrayList<ArrayList<ArrayList<Integer>>>) listaResultados.get(0); 
 
 	return espectaculoOrdenado;
@@ -376,6 +367,7 @@ public class AlgoritmoIngenuo {
         ArrayList<ArrayList<String>> listaSolucion = new ArrayList<>();
         ArrayList<String> listaSubSolucion = new ArrayList<>();
         
+
         for(int i = 0; i < cantidadEscenas;  i++){
             escenaInteger = parteOrdenada.get(i);
             int a1 = escenaInteger.get(0);
