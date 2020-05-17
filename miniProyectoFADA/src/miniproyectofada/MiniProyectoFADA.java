@@ -27,7 +27,7 @@ public class MiniProyectoFADA {
         ArrayList<ArrayList<ArrayList <String>>> partes = new ArrayList<>();
         ArrayList<ArrayList <String>> parte = new ArrayList<>();
         ArrayList<ArrayList<ArrayList<String>>> todasLasPartes=new ArrayList();
-        int tipoDeOrdenamiento = 1;
+        int tipoDeOrdenamiento = 2;
                 // 0    -> quickSort
                 // 1    -> mergeSort
                 // 2    -> radixSort

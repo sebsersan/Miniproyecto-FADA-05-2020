@@ -22,11 +22,6 @@ public class AlgoritmosDeOrdenamiento {
     }
     
     
-    public int prueba(int a){
-        return a+1;
-    }
-    
-    
     public ArrayList QuickSortDosListas(ArrayList B,ArrayList<Integer> A,int izq,int der){
 	ArrayList resultado = new ArrayList<>();
         
@@ -73,14 +68,11 @@ public class AlgoritmosDeOrdenamiento {
         // Find sizes of two subarrays to be merged 
         int n1 = m - l + 1; 
         int n2 = r - m; 
-  
         /* Create temp arrays */
         ArrayList<Integer> L = new ArrayList<>(); 
-        ArrayList<Integer> R = new ArrayList<>();
-        
+        ArrayList<Integer> R = new ArrayList<>(); 
         ArrayList L2 = new ArrayList<>(); 
         ArrayList R2 = new ArrayList<>();
-  
         /*Copy data to temp arrays*/
         for (int i=0; i<n1; ++i) {
             L.add(A.get(i+l));
@@ -90,12 +82,9 @@ public class AlgoritmosDeOrdenamiento {
             R.add(A.get(m+1+j));
             R2.add(B.get(m+1+j));
         }
-  
         /* Merge the temp arrays */
-  
         // Initial indexes of first and second subarrays 
         int i = 0, j = 0; 
-  
         // Initial index of merged subarry array 
         int k = l; 
         while (i < n1 && j < n2) 
@@ -171,4 +160,72 @@ public class AlgoritmosDeOrdenamiento {
     }
     
     
+    void countingSort(int size, int place) {
+        ArrayList<Integer> outputA = (ArrayList<Integer>) A.clone();
+        ArrayList outputB = (ArrayList<Integer>) B.clone();
+        int max = A.get(0);
+        for (int i = 1; i < size; i++) {
+          if (A.get(i) > max)
+            max = A.get(i);
+        }
+        int[] count = new int[max + 1];
+
+        for (int i = 0; i < max; ++i)
+          count[i] = 0;
+
+        // Calculate count of elements
+        for (int i = 0; i < size; i++)
+          count[(A.get(i) / place) % 10]++;
+
+        // Calculate cummulative count
+        for (int i = 1; i < 10; i++)
+          count[i] += count[i - 1];
+
+        // Place the elements in sorted order
+        for (int i = size - 1; i >= 0; i--) {
+          outputA.set(count[(A.get(i) / place) % 10] - 1, A.get(i));
+          outputB.set(count[(A.get(i) / place) % 10] - 1, B.get(i));
+          count[(A.get(i) / place) % 10]--;
+        }
+
+        for (int i = 0; i < size; i++){
+          A.set(i, outputA.get(i));
+          B.set(i, outputB.get(i));
+        }
+  }
+
+    // Function to get the largest element from an array
+    public int max(ArrayList<Integer> lista){
+        int maxAux = 0;
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i) > maxAux) {
+                maxAux = lista.get(i);
+            }
+        }
+        return maxAux;
+    }
+
+    // Main function to implement radix sort
+    void radixSort(int size) {
+      // Get maximum element
+      int maxNumber = max(A);
+
+      // Apply counting sort to sort elements based on place value.
+      for (int place = 1; maxNumber / place > 0; place *= 10)
+        countingSort(size, place);
+    }
+    
+    public ArrayList RadiuxDosListas(ArrayList arr1, ArrayList<Integer> arr2, int size){
+        B = arr1;
+        A = arr2;
+        radixSort(size);
+        
+        resultadoGlobal.add(B);
+        resultadoGlobal.add(A);
+        
+        resultadoGlobalAux = (ArrayList) resultadoGlobal.clone();
+        resultadoGlobal.clear();
+        
+        return  resultadoGlobalAux;
+    }
 }

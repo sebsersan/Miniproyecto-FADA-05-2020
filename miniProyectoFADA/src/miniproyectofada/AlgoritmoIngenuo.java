@@ -314,6 +314,8 @@ public class AlgoritmoIngenuo {
         }
         if(tipoOrdenamiento == 2){
             
+            listaResultados = ordenamiento.RadiuxDosListas(parte, (ArrayList<Integer>) listaValoresMax.clone(), cantidadEscenas);
+            
         }
         
         
@@ -350,7 +352,7 @@ public class AlgoritmoIngenuo {
             listaResultados = ordenamiento.MergeDosListas(espectaculoAux, listaValoresMax, 0,  m-1-1);
         }
         if(tipoOrdenamiento == 2){
-            
+            listaResultados = ordenamiento.RadiuxDosListas(espectaculoAux, (ArrayList<Integer>) listaValoresMax.clone(), m-1);
         }
         
         espectaculoOrdenado = (ArrayList<ArrayList<ArrayList<Integer>>>) listaResultados.get(0); 
